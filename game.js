@@ -12,6 +12,8 @@ let isLanding = true;
 function setup() {
   createCanvas(800, 600);
   frameRate(30);
+  width = 800;
+  height = 600;
 }
 
 function draw() {
@@ -103,7 +105,6 @@ function gameScreen() {
 
   x += vx;
   y += vy;
-  console.log(vy);
 
   x = constrain(x, 0, 800);
   y = constrain(y, 0, 600);
@@ -111,7 +112,7 @@ function gameScreen() {
   if (
     y >= 300 && y <= 340 &&
     vy >= -1 && vy <= 1 &&
-    x >= (width / 2 - landingSpotWidth / 2) && x <= (width / 2 + landingSpotWidth / 2)
+    x >= (width - 700 / 2 - landingSpotWidth / 2) && x <= (width / 2 + landingSpotWidth / 2)
   ) {
     isLanding = true;
     state = "result";
@@ -124,7 +125,7 @@ function gameScreen() {
   pop();
 
   fill(200, 100, 100);
-  rect(width / 2 - landingSpotWidth / 2, landingSpotY, landingSpotWidth, 20);
+  rect(width - 700 / 2 - landingSpotWidth / 2, landingSpotY, landingSpotWidth, 20);
 
   push();
   cloud();
